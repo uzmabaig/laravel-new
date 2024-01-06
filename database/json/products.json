@@ -1,0 +1,30 @@
+[
+    {
+        "name" : "dish washing powder",
+        "price": 1200
+    },
+    {
+        "name" : "clothes comforter",
+        "price": 1700
+    },
+    {
+        "name" : "washing powder",
+        "price": 800
+    },
+    {
+        "name" : "floor liquid wash",
+        "price": 1000
+    },
+    {
+        "name" : "dish washing powder",
+        "price": 1200
+    },
+    {
+        "name" : "soap in tub",
+        "price": 300
+    },
+    {
+        "name" : "clothes freshner capsule",
+        "price": 2000
+    }
+]
