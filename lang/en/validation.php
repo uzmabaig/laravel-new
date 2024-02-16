@@ -163,8 +163,12 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'productname' => [
+            'required' => 'valid product name required',
+            
+        ],
+        'productprice' => [
+            'required' => 'valid product price required'
         ],
     ],
 

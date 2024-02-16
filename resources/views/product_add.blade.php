@@ -9,15 +9,26 @@
     <div class="row">
         <div class="col-6">
             <h1>Add Product</h1>
+         
             <form action="{{ route('addProduct')}}" method="POST">
               @csrf
         <div class="mb-3">
           <label for="form-label">Name:</label>
-          <input type="text"class="form-control" id="name" name="productname">
+    <input type="text" value="{{ old('productname')}}" class="form-control  @error('productname') is-invalid  @enderror" id="name" name="productname">
+          <span class="text-danger">
+          @error('productname')
+              {{ $message }}
+           @enderror
+          </span>
         </div>
         <div class="mb-3">
           <label for="form-label">Price:</label>
-          <input type="number" class="form-control" id="price" name="productprice">
+          <input type="number" value="{{ old('productprice') }}" class="form-control  @error('productprice') is-invalid  @enderror" id="price" name="productprice">
+          <span class="text-danger">
+            @error('productprice')
+            {{ $message }}
+             @enderror
+            </span>
         </div>
         <div class="mb-3">
           <button class="btn btn-primary" type="submit" name="submit">Submit</button>

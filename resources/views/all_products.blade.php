@@ -25,8 +25,8 @@
                     <td>{{$products->name}}</td>
                     <td>{{$products->price}}</td>
                     <td><a href="{{ route('viewproduct',$products->id) }}" class="btn btn-primary btn-sm">View</a></td>
-                    <td><a href= "{{ route('deleteproduct',$products->id)}}" class="btn btn-danger btn-sm">Delete</a></td>
-                    <td><a href= "{{ route('Update.page',$products->id)}}" class="btn btn-warning btn-sm">Update</a></td>
+                    <td><a href= "{{ route('delete.product',$products->id)}}" class="btn btn-danger btn-sm">Delete</a></td>
+                    <td><a href= "{{ route('update.page',$products->id)}}" class="btn btn-warning btn-sm">Update</a></td>
                 </tr>
                 @endforeach
                 
