@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-6">
             <h1>All Products</h1>
-            <a href= "/newproduct" class="btn btn-success btn-sm mb-3">Add new</a></td>
+            <a href= "/newproduct" class="btn btn-success btn-sm mb-3">Add new</a>
              <table class="table table-bordered table-striped">
                 <tr>
                     <td>Id</td>

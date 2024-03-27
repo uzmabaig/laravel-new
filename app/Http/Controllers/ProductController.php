@@ -13,7 +13,7 @@ class ProductController extends Controller
   
   public function singleproduct($id){
     $products = Product::find($id);
-    return $products;
+    return view('product/get',['data' => $products]);
   }
   
   //using in form
