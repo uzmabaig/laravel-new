@@ -6,67 +6,76 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-  public function showproducts(){
+  public function show(){
     $products = Product::get();
-    return view('product/products',['data' => $products]);
+    return view('product.products',['data' => $products]);
   }
   
-  public function singleproduct($id){
+  public function single($id){
     $products = Product::find($id);
-    return view('product/get',['data' => $products]);
+    return view('product.get',['data' => $products]);
   }
   
-  //using in form
   public function add(Request $add){
-    $products = $add->validate([
-      'productname'=>'required',
-      'productprice'=>'required|numeric',
-    ]);
-    $products = Product::create([
-      'name'=>$add->productname,
-      'price'=>$add->productprice,
-    ]);
-    
-    if($products){
-      return redirect()->route('home');
+    if($add->method() === 'POST'){
+      $products = $add->validate([
+        'productname'=>'required',
+        'productprice'=>'required|numeric',
+      ]);
+      $products = Product::create([
+        'name'=>$add->productname,
+        'price'=>$add->productprice,
+      ]);
       
-    }else{
-      echo '<h3>New product not added</h3>';
+      if($products){
+        return redirect()->route('home')->with('success','Product added successfully!');
+        
+      }else{
+        return back()->with('error','Product not added!');
+      }
     }
-  }
-  
-  
-  public function updatepage($id){
-    $products = Product::find($id);
-    return view('product/update',['data' => $products]);      
-  }
-  
-  public function updateproduct(Request $update,$id){
-    $products = $update->validate([
-      'productname'=>'required',
-      'productprice'=>'required|numeric',
-    ]);
+    $products = Product::get();
+    return view('product.add'); 
     
-    $products = Product::where('id',$id)
-    ->update([
-      'name'=>$update->productname,
-      'price'=>$update->productprice,
-      'created_at'=>now(),
-      'updated_at'=>now()
-    ]);
-    if($products){
-      return redirect()->route('home');
-    }
-    else{
-      echo '<h3>Product not updated</h3>';
-    }
   }
   
-  public function deleteproduct($id){
+  public function update(Request $update,$id){
+    
+    if($update->method() === 'POST') {
+      $products = $update->validate([
+        'productname'=>'required',
+        'productprice'=>'required|numeric',
+      ]);
+      
+      $products = Product::where('id',$id)->update([
+        'name'=>$update->productname,
+        'price'=>$update->productprice,
+        'updated_at'=>now()
+      ]);
+      
+      if($products){
+        return redirect()->route('home')->with('success','Product updated successfully!');
+      }else{
+        return back()->with('error','Product not updated!');
+      }
+    }
+    
+    $products = Product::find($id);
+    return view('product.update',['data' => $products]); 
+    
+    
+  }
+  
+  
+  public function delete($id){
     $products = Product::where('id',$id)->delete();
     if($products){
-      return redirect()->route('home');
+      return redirect()->route('home')->with('success','Product deleted successfully!');
+    }else{
+      return redirect()->route('home')->with('error','Product not deleted!');
     }
   }
+  
+  
   
 }

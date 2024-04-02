@@ -1,44 +1,30 @@
-<!doctype html>
-<html lang="en">
-    <head>
-    <title>Products</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
-<body>
-  <div class="container">
-    <div class="row">
-        <div class="col-6">
-            <h1>All Products</h1>
-            <a href= "/newproduct" class="btn btn-success btn-sm mb-3">Add new</a>
-             <table class="table table-bordered table-striped">
-                <tr>
-                    <td>Id</td>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td>View</td>
-                    <td>Delete</td>
-                    <td>Update</td>
-                </tr>
-                @foreach ($data as $id => $products)
-                <tr>
-                    <td>{{$products->id}}</td>
-                    <td>{{$products->name}}</td>
-                    <td>{{$products->price}}</td>
-                    <td><a href="{{ route('viewproduct',$products->id) }}" class="btn btn-primary btn-sm">View</a></td>
-                    <td><a href= "{{ route('delete.product',$products->id)}}" class="btn btn-danger btn-sm">Delete</a></td>
-                    <td><a href= "{{ route('update.page',$products->id)}}" class="btn btn-warning btn-sm">Update</a></td>
-                </tr>
-                @endforeach
-                
-             </table>
+@extends('layouts.app')
 
-        </div>
+@section('content')
+<div class="row">
+  <div class="col-6 offset-3 mt-4">
+    <h3>All Products</h3>
+    <a href="{{ route('add.product') }}" class="btn btn-success btn-sm mb-3">Add new</a>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Action</td>
+      </tr>
+      @foreach ($data as $id => $products)
+      <tr>
+        <td>{{$id+1}}</td>
+        <td>{{$products->name}}</td>
+        <td>{{$products->price}}</td>
+        <td><a href="{{ route('view.product',$products->id) }}" class="btn btn-primary btn-sm">View</a>
+          <a href= "{{ route('update.product',$products->id)}}" class="btn btn-warning btn-sm">Update</a>
+          <a href= "{{ route('delete.product',$products->id)}}" class="btn btn-danger btn-sm">Delete</a></td>
+        </tr>
+        @endforeach
+      </table>
     </div>
   </div>
+  @endsection
 
-
-</body>
-</html>
-
-
-    
+  

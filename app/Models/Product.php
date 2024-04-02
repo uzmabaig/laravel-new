@@ -11,4 +11,5 @@ class Product extends Model
     // public $timestamps = false;
     protected $fillable = [];
     protected $guarded =  [];
+
 }
