@@ -33,5 +33,5 @@
 @endsection
 
 @section('title')
-   add
+   Add
 @endsection

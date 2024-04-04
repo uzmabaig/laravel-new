@@ -13,15 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',25);
-            $table->integer('price');
-            $table->timestamps();
+        Schema::table('customers', function (Blueprint $table) {
+            $table->string('phonenumber',25)->after('email');
         });
-        
     }
-    
 
     /**
      * Reverse the migrations.
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::table('customers', function (Blueprint $table) {
+            //
+        });
     }
 };

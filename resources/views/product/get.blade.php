@@ -19,5 +19,5 @@
 
 
 @section('title')
-  view
+  View
 @endsection
