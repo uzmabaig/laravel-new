@@ -170,6 +170,21 @@ return [
         'productprice' => [
             'required' => 'valid product price required'
         ],
+        'customerfirstname' => [
+            'required' => 'valid customer firstname required',
+            
+        ],
+        'customerlastname' => [
+            'required' => 'valid customer lastname required'
+        ],
+        'customeremail' => [
+            'required' => 'valid customer email required',
+            'unique'    => 'your emailaddress must be unique',
+        ],
+        'customerphone_number' => [
+            'required' => 'valid customer contact required'
+        ],
+        
     ],
 
     /*
