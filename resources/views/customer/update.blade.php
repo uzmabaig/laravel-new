@@ -1,4 +1,4 @@
-@extends('layouts.customerlayout')
+@extends('layouts.customer')
 
 
 @section('content')
@@ -9,36 +9,36 @@
       @csrf
       <div class="mb-3">
         <label for="form-label">Name:</label>
-        <input type="text" value="{{ $data->firstname }}" class="form-control @error('customerfirstname') is-invalid  @enderror" id="firstname" name="customerfirstname">
+        <input type="text" value="{{ $data->firstname }}" class="form-control @error('firstname') is-invalid  @enderror" id="firstname" name="firstname">
         <span class="text-danger">
-          @error('customerfirstname')
+          @error('firstname')
           {{ $message }}
           @enderror
         </span>
       </div>
       <div class="mb-3">
         <label for="form-label">Price:</label>
-        <input type="text" value="{{ $data->lastname }}"  class="form-control  @error('customerlastname') is-invalid  @enderror" id="lastname" name="customerlastname">
+        <input type="text" value="{{ $data->lastname }}"  class="form-control  @error('lastname') is-invalid  @enderror" id="lastname" name="lastname">
         <span class="text-danger">
-          @error('customerlastname')
+          @error('lastname')
           {{ $message }}
           @enderror
         </span>
       </div>
       <div class="mb-3">
         <label for="form-label">Name:</label>
-        <input type="text" value="{{ $data->email }}" class="form-control @error('customeremail') is-invalid  @enderror" id="email" name="customeremail">
+        <input type="text" value="{{ $data->email }}" class="form-control @error('email') is-invalid  @enderror" id="email" name="email">
         <span class="text-danger">
-          @error('customeremail')
+          @error('email')
           {{ $message }}
           @enderror
         </span>
       </div>
       <div class="mb-3">
         <label for="form-label">Price:</label>
-        <input type="number" value="{{ $data->phonenumber }}"  class="form-control  @error('customerphone_number') is-invalid  @enderror" id="phonenumber" name="customerphone_number">
+        <input type="number" value="{{ $data->phonenumber }}"  class="form-control  @error('phonenumber') is-invalid  @enderror" id="phonenumber" name="phonenumber">
         <span class="text-danger">
-          @error('customerphone_number')
+          @error('phonenumber')
           {{ $message }}
           @enderror
         </span>

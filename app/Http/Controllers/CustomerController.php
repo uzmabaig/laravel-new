@@ -18,19 +18,19 @@ class CustomerController extends Controller
     
   }
   
-  public function add(Request $add){
-    if($add->method() === 'POST'){
-      $customers = $add->validate([
-        'customerfirstname'=>'required',
-        'customerlastname'=>'required',
-        'customeremail'=>'required',
-        'customerphone_number'=>'required|digits:11',
+  public function add(Request $request){
+    if($request->method() === 'POST'){
+      $customers = $request->validate([
+        'firstname'=>'required',
+        'lastname'=>'required',
+        'email'=>'required|unique:customers',
+        'phonenumber'=>'required|digits:11',
       ]);
       $customers = Customer::create([
-        'firstname'=>$add->customerfirstname,
-        'lastname'=>$add->customerlastname,
-        'email'   =>$add->customeremail,
-        'phonenumber'=>$add->customerphone_number,
+        'firstname'=>$request->firstname,
+        'lastname'=>$request->lastname,
+        'email'   =>$request->email,
+        'phonenumber'=>$request->phonenumber,
       ]);
   
       if($customers){
@@ -46,21 +46,21 @@ class CustomerController extends Controller
     return view('customer.add');
   }
 
-  public function update(Request $update,$id){
+  public function update(Request $request,$id){
     
-    if($update->method() === 'POST') {
-      $customers = $update->validate([
-        'customerfirstname'=>'required',
-        'customerlastname'=>'required',
-        'customeremail'=>'required',
-        'customerphone_number'=>'required|digits:11',
+    if($request->method() === 'POST') {
+      $customers = $request->validate([
+        'firstname'=>'required',
+        'lastname'=>'required',
+        'email'=>'required',
+        'phonenumber'=>'required|digits:11',
       ]);
       
       $customers = Customer::where('id',$id)->update([
-        'firstname'=>$update->customerfirstname,
-        'lastname'=>$update->customerlastname,
-        'email'   =>$update->customeremail,
-        'phonenumber'=>$update->customerphone_number,
+        'firstname'=>$request->firstname,
+        'lastname'=>$request->lastname,
+        'email'   =>$request->email,
+        'phonenumber'=>$request->phonenumber,
         'updated_at'=>now()
       ]);
       

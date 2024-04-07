@@ -17,7 +17,7 @@ Route::controller(ProductController::class)->group(function(){
 
 Route::controller(CustomerController::class)->group(function(){
 
-    Route::get('/','show')->name('home');
+    Route::get('/customers','show')->name('home');
     Route::get('/customer/{id}','single')->name('view.customer');
     Route::match(['GET', 'POST'],'/add','add')->name('add.customer');
     Route::match(['GET', 'POST'],'/update/{id}','update')->name('update.customer');

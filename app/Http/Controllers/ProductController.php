@@ -16,15 +16,15 @@ class ProductController extends Controller
     return view('product.get',['data' => $products]);
   }
   
-  public function add(Request $add){
-    if($add->method() === 'POST'){
-      $products = $add->validate([
-        'productname'=>'required',
-        'productprice'=>'required|numeric',
+  public function add(Request $request){
+    if($request->method() === 'POST'){
+      $products = $request->validate([
+        'name'=>'required|unique:products',
+        'price'=>'required|numeric',
       ]);
       $products = Product::create([
-        'name'=>$add->productname,
-        'price'=>$add->productprice,
+        'name'=>$request->name,
+        'price'=>$request->price,
       ]);
       
       if($products){
@@ -39,17 +39,17 @@ class ProductController extends Controller
     
   }
   
-  public function update(Request $update,$id){
+  public function update(Request $request,$id){
     
-    if($update->method() === 'POST') {
-      $products = $update->validate([
-        'productname'=>'required',
-        'productprice'=>'required|numeric',
+    if($request->method() === 'POST') {
+      $products = $request->validate([
+        'name'=>'required',
+        'price'=>'required|numeric',
       ]);
       
       $products = Product::where('id',$id)->update([
-        'name'=>$update->productname,
-        'price'=>$update->productprice,
+        'name'=>$request->name,
+        'price'=>$request->price,
         'updated_at'=>now()
       ]);
       

@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="container col-6 mt-4">
-        @include('product.flash-message')
+        @include('flash-message')
     </div>
     
     <div class="container">

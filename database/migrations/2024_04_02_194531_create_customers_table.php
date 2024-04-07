@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -17,11 +18,12 @@ return new class extends Migration
             $table->id();
             $table->string('firstname',25);
             $table->string('lastname',25);
-            $table->string('email',50)->unique();
+            $table->string('email',50)->Unique();
             $table->integer('phonenumber');
             $table->timestamps();
         });
       
+       
     }
 
     /**

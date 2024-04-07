@@ -1,4 +1,4 @@
-@extends('layouts.customerlayout')
+@extends('layouts.customer')
 
 @section('content')
 <div class="row">
@@ -8,36 +8,36 @@
       @csrf
       <div class="mb-3">
         <label for="form-label">Firstname:</label>
-        <input type="text" value="{{ old('customerfirstname')}}" class="form-control  @error('customerfirstname') is-invalid  @enderror" id="firstname" name="customerfirstname">
+        <input type="text" value="{{ old('firstname')}}" class="form-control  @error('firstname') is-invalid  @enderror" id="firstname" name="firstname">
         <span class="text-danger">
-          @error('customerfirstname')
+          @error('firstname')
           {{ $message }}
           @enderror
         </span>
       </div>
       <div class="mb-3">
         <label for="form-label">Lastname:</label>
-        <input type="text" value="{{ old('customerlastname') }}" class="form-control  @error('customerlastname') is-invalid  @enderror" id="lastname" name="customerlastname">
+        <input type="text" value="{{ old('lastname') }}" class="form-control  @error('lastname') is-invalid  @enderror" id="lastname" name="lastname">
         <span class="text-danger">
-          @error('customerlastname')
+          @error('lastname')
           {{ $message }}
           @enderror
         </span>
       </div>
       <div class="mb-3">
         <label for="form-label">Email:</label>
-        <input type="text" value="{{ old('customeremail')}}" class="form-control  @error('customeremail') is-invalid  @enderror" id="email" name="customeremail">
+        <input type="text" value="{{ old('email')}}" class="form-control  @error('email') is-invalid  @enderror" id="email" name="email">
         <span class="text-danger">
-          @error('customeremail')
+          @error('email')
           {{ $message }}
           @enderror
         </span>
       </div>
       <div class="mb-3">
         <label for="form-label">Contact:</label>
-        <input type="number" value="{{ old('customerphone_number') }}" class="form-control  @error('customerphone_number') is-invalid  @enderror" id="phonenumber" name="customerphone_number">
+        <input type="number" value="{{ old('phonenumber') }}" class="form-control  @error('phonenumber') is-invalid  @enderror" id="phonenumber" name="phonenumber">
         <span class="text-danger">
-          @error('customerphone_number')
+          @error('phonenumber')
           {{ $message }}
           @enderror
         </span>

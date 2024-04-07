@@ -3,23 +3,23 @@
 @section('content')
 <div class="row">
   <div class="col-6 offset-3 mt-4">
-    <h3>Add Product</h3>
+    <h3>Add Product:</h3>
     <form action="{{ route('add.product')}}" method="POST">
       @csrf
       <div class="mb-3">
         <label for="form-label">Name:</label>
-        <input type="text" value="{{ old('productname')}}" class="form-control  @error('productname') is-invalid  @enderror" id="name" name="productname">
+        <input type="text" value="{{ old('name')}}" class="form-control  @error('name') is-invalid  @enderror" id="name" name="name">
         <span class="text-danger">
-          @error('productname')
+          @error('name')
           {{ $message }}
           @enderror
         </span>
       </div>
       <div class="mb-3">
         <label for="form-label">Price:</label>
-        <input type="number" value="{{ old('productprice') }}" class="form-control  @error('productprice') is-invalid  @enderror" id="price" name="productprice">
+        <input type="number" value="{{ old('price') }}" class="form-control  @error('price') is-invalid  @enderror" id="price" name="price">
         <span class="text-danger">
-          @error('productprice')
+          @error('price')
           {{ $message }}
           @enderror
         </span>
