@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
+
   public function show(){
     $customers = Customer::get();
     return view('customer.customers',['data'=>$customers]);
