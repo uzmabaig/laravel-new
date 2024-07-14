@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Validation\Rules\Unique;
 
 return new class extends Migration
 {
@@ -14,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('firstname',25);
-            $table->string('lastname',25);
-            $table->string('email',50)->Unique();
-            $table->integer('phonenumber');
-            $table->timestamps();
-        });
-      
-       
+            $table->string('email',50)->unique();
+            $table->string('phonenumber',25);
+            $table->string('city',10);
+            $table->integer('student_id');
+       });
     }
 
     /**
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('contacts');
     }
 };

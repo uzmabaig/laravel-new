@@ -26,7 +26,7 @@
         </span>
       </div>
       <div class="mb-3">
-        <label for="form-label">Name:</label>
+        <label for="form-label">Email:</label>
         <input type="text" value="{{ $data->email }}" class="form-control @error('email') is-invalid  @enderror" id="email" name="email">
         <span class="text-danger">
           @error('email')
@@ -35,7 +35,7 @@
         </span>
       </div>
       <div class="mb-3">
-        <label for="form-label">Price:</label>
+        <label for="form-label">Contact:</label>
         <input type="number" value="{{ $data->phonenumber }}"  class="form-control  @error('phonenumber') is-invalid  @enderror" id="phonenumber" name="phonenumber">
         <span class="text-danger">
           @error('phonenumber')

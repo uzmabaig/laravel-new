@@ -13,43 +13,38 @@ class StudentSeeder extends Seeder
     
     public function run()
     {
-        // method 1
-        //    student::create([
-    //       'name' => 'Azmat Ali',
-    //       'email' => 'azmat@gmail.com'
-    //    ]);
-    
-    // method 2
-        // $students = collect(
-        //     [
-        //     [
-        //         'name' => 'Azmat Ali',
-        //         'email' => 'azmat@gmail.com'  
-        //     ],
-        //     [
-        //         'name' => 'Nadir Ali',
-        //         'email' => 'nadir@gmail.com'  
-        //     ],
-        //     [
-        //         'name' => 'Muzammil Shah',
-        //         'email' => 'shah@gmail.com'  
-        //     ]
-        //     ]
-        // );
-        //   $students->each(function($value){
-        //       student::insert($value);
-        //   });
+           // one to one relation
+
+        $student = Student::create([
+                    'name'=>'Shah nawaz',
+                    'age'=> 16,
+                    'gender'=>'M',
+                ]);
         
-    // method 3
+                $student->contact()->create([
+                    'email'=>'shah@gmail.com',
+                    'phonenumber'=> '03156340232',
+                    'city'=>'Rawalpindi',
+                ]);
 
-    $json = File::get(path:'database/json/students.json');
-    $students = collect(json_decode($json));
-    $students->each(function($value){
-       student::create([
-        'name'=> $value->name,
-        'email'=> $value->email
-       ]);
+        // one to many relation
 
-    });
-    }
+        $student = Student::find(2);
+        $student->book()->createmany([
+        [
+           'title'=>'Arabic', 
+           'price'=> 1550,
+        ],
+        [
+           'title'=>'stories',
+            'price'=> 1300,
+        ]
+        
+        ]);
+
+     
+    
+        
+ 
+     }
 }

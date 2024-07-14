@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.product')
 
 @section('content')
 <div class="row">
   <div class="col-6 offset-3 mt-4">
     <h3>All Products</h3>
-    <a href="{{ route('add.product') }}" class="btn btn-success btn-sm mb-3">Add new</a>
+    <a href="{{ route('add.product') }}" class="btn btn-success btn-sm mb-3">Add new</a> 
     <table class="table table-bordered table-striped">
       <tr>
         <td>Id</td>
