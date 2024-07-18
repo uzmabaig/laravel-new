@@ -15,32 +15,27 @@ class StudentSeeder extends Seeder
     {
            // one to one relation
 
-        $student = Student::create([
-                    'name'=>'Shah nawaz',
-                    'age'=> 16,
-                    'gender'=>'M',
-                ]);
+        // $student = Student::create([
+        //             'name'=>'Shah nawaz',
+        //             'age'=> 16,
+        //             'gender'=>'M',
+        //         ]);
         
-                $student->contact()->create([
-                    'email'=>'shah@gmail.com',
-                    'phonenumber'=> '03156340232',
-                    'city'=>'Rawalpindi',
-                ]);
+        //         $student->contact()->create([
+        //             'email'=>'shah@gmail.com',
+        //             'phonenumber'=> '03156340232',
+        //             'city'=>'Rawalpindi',
+        //         ]);
 
         // one to many relation
 
-        $student = Student::find(2);
-        $student->book()->createmany([
-        [
-           'title'=>'Arabic', 
-           'price'=> 1550,
-        ],
-        [
-           'title'=>'stories',
-            'price'=> 1300,
-        ]
+        $student = Student::find(3);
+        $student->book()->create([
         
-        ]);
+           'title'=>'Holy Quran', 
+           'price'=> 1700,
+        
+           ]);
 
      
     

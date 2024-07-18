@@ -6,8 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ConsumerController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 //  Route::controller(ProductController::class)->group(function(){
@@ -35,6 +37,9 @@ Route::get('/contact',[ContactController::class,'show']);
 
 Route::get('/book',[StudentController::class,'get']);
 Route::resource('getstudent',BookController::class);
+
+Route::resource('user',UserController::class);
+Route::resource('consumer',ConsumerController::class);
 
 
 

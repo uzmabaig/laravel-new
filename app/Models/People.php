@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class People extends Model
 {
     use HasFactory;
     protected $fillable = [];
     protected $guarded =  [];
     public $timestamps = false;
     
-    public function students(){
-        return $this->belongsTo(Student::class);
+    public function profession(){
+        return $this->belongsToMany(Profession::class,'people_professions');
     }
 }
