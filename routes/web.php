@@ -8,7 +8,9 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ConsumerController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Auth;
 
 //  Route::controller(ProductController::class)->group(function(){
@@ -41,6 +43,8 @@ Route::resource('user',UserController::class);
 Route::resource('consumer',ConsumerController::class);
 
 Route::resource('country',CountryController::class);
+Route::resource('video',VideoController::class);
+Route::resource('post',PostController::class);
 
 
 
