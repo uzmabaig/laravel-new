@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\News;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,8 +20,16 @@ class DatabaseSeeder extends Seeder
     //     StudentSeeder::class
     //    ]);
 
+    //    $this->call([
+    //     PeopleSeeder::class
+    //    ]);
+
+    //    $this->call([
+    //     ReporterSeeder::class
+    //    ]);
+
        $this->call([
-        PeopleSeeder::class
+        NewsSeeder::class
        ]);
        
       

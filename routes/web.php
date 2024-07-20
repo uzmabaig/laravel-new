@@ -7,8 +7,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ConsumerController;
-use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,6 +39,8 @@ Route::resource('getstudent',BookController::class);
 
 Route::resource('user',UserController::class);
 Route::resource('consumer',ConsumerController::class);
+
+Route::resource('country',CountryController::class);
 
 
 
