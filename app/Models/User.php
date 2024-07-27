@@ -10,6 +10,7 @@ class User extends Model
     use HasFactory;
     protected $fillable = [];
     protected $guarded =  [];
+    public $timestamps = false;
       
     public function company(){
         return $this->hasOne(Company::class);

@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ConsumerController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\IntroductionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoController;
@@ -39,15 +40,26 @@ Route::get('/contact',[ContactController::class,'show']);
 Route::get('/book',[StudentController::class,'get']);
 Route::resource('getstudent',BookController::class);
 
-Route::resource('user',UserController::class);
+
 Route::resource('consumer',ConsumerController::class);
 
 Route::resource('country',CountryController::class);
 Route::resource('video',VideoController::class);
 Route::resource('post',PostController::class);
 
+Route::view('register','register')->name('register');
+Route::match(['GET', 'POST'],'registerSave',[UserController::class,'register'])->name('registerSave');
+
+Route::view('login','login')->name('login');
+Route::match(['GET', 'POST'],'loginMatch',[UserController::class,'login'])->name('loginMatch');
+
+Route::view('welcome','welcome')->name('welcome');
 
 
-// Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+
+
  
