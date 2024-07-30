@@ -10,7 +10,17 @@
     </div>
     
     <div class="container">
-        @yield('content', 'Default content')
+        <div class="row">
+            <div class="col-6 offset-3 mt-4">
+              <div class="card">
+                <div class="card-header">
+         @yield('content', 'Default content')
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
     </div>
 </body>
 </html>

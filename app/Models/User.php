@@ -3,15 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticate;
 
-class User extends Model
+class User extends Authenticate
 {
     use HasFactory;
     protected $fillable = [];
     protected $guarded =  [];
-    public $timestamps = false;
-      
+
     public function company(){
         return $this->hasOne(Company::class);
     }
